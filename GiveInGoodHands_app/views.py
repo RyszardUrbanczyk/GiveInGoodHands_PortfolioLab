@@ -3,11 +3,16 @@ from django.shortcuts import render
 # Create your views here.
 from django.views import View
 
+from GiveInGoodHands_app.models import Donation, Institution
+
 
 class LandingPageView(View):
 
     def get(self, request):
-        return render(request, 'base.html')
+        quantity = Donation.get_quantity_all(self)
+        quantity_institutions = Institution.get_institution_count(self)
+        return render(request, 'base.html', {'quantity': quantity,
+                                             'quantity_institutions': quantity_institutions})
 
 
 class AddDonationView(View):
