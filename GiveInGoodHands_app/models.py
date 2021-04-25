@@ -42,7 +42,7 @@ class Donation(models.Model):
 
     def get_quantity_all(self):
         quantity = Donation.objects.all()
-        result = 0
+        quantity_bags = 0
         for i in quantity:
-            result += i.quantity
-        return result
+            quantity_bags += i.quantity
+        return quantity_bags

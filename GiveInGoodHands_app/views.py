@@ -9,9 +9,9 @@ from GiveInGoodHands_app.models import Donation, Institution
 class LandingPageView(View):
 
     def get(self, request):
-        quantity = Donation.get_quantity_all(self)
+        quantity_bags = Donation.get_quantity_all(self)
         quantity_institutions = Institution.get_institution_count(self)
-        return render(request, 'base.html', {'quantity': quantity,
+        return render(request, 'base.html', {'quantity_bags': quantity_bags,
                                              'quantity_institutions': quantity_institutions})
 
 
