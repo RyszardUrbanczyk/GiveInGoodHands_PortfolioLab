@@ -2,6 +2,7 @@
 
 {% block content %}
 
+
     <section id="stats" class="stats">
         <div class="container container--85">
             <div class="stats--item">
@@ -73,105 +74,46 @@
 
         <!-- SLIDE 1 -->
         <div class="help--slides active" data-id="1">
-            <p>W naszej bazie znajdziesz listę zweryfikowanych Fundacji, z którymi współpracujemy. Możesz sprawdzić czym
-                się zajmują, komu pomagają i czego potrzebują.</p>
-
+            <p>W naszej bazie znajdziesz listę zweryfikowanych <strong>Fundacji</strong>, z którymi współpracujemy.
+                Możesz sprawdzić czym się zajmują, komu pomagają i czego potrzebują.</p>
             <ul class="help--slides-items">
-                <li>
-                    <div class="col">
-                        <div class="title">Fundacja "Dbam o Zdrowie"</div>
-                        <div class="subtitle">Cel i misja: Pomoc dzieciom z ubogich rodzin.</div>
-                    </div>
-
-                    <div class="col">
-                        <div class="text">ubrania, jedzenie, sprzęt AGD, meble, zabawki</div>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="col">
-                        <div class="title">Fundacja “Dla dzieci"</div>
-                        <div class="subtitle">Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.
+                {% for obj in objects1 %}
+                    <li>
+                        <div class="col">
+                            <div class="title">{{ obj.name }}</div>
+                            <div class="subtitle">{{ obj.description }}</div>
                         </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="text">ubrania, meble, zabawki</div>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="col">
-                        <div class="title">Fundacja “Bez domu”</div>
-                        <div class="subtitle">Cel i misja: Pomoc dla osób nie posiadających miejsca zamieszkania</div>
-                    </div>
-
-                    <div class="col">
-                        <div class="text">ubrania, jedzenie, ciepłe koce</div>
-                    </div>
-                </li>
+                        <div class="col">
+                            <div class="text">
+                                {% for org in obj.categories.all %}
+                                    {{ org.name }},
+                                {% endfor %}</div>
+                        </div>
+                    </li>
+                {% endfor %}
             </ul>
-            <!-- Pagination
-            <ul class="help--slides-pagination">
-              <li><a href="#" class="btn btn--small btn--without-border active" data-page="1">1</a></li>
-              <li><a href="#" class="btn btn--small btn--without-border" data-page="2">2</a></li>
-              <li><a href="#" class="btn btn--small btn--without-border" data-page="3">3</a></li>
-            </ul>
-            -->
         </div>
 
 
         <!-- SLIDE 2 -->
         <div class="help--slides" data-id="2">
-            <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic officiis mollitia dolor, neque aspernatur
-                accusamus debitis. Ducimus, officia. Quia, sunt illum! Non iste placeat ab ipsum alias
-                quos suscipit corporis!
-            </p>
-            <ul class="help--slides-items">
-                <li>
-                    <div class="col">
-                        <div class="title">Organizacja 1</div>
-                        <div class="subtitle">Lorem ipsum dolor sit amet consectetur.</div>
-                    </div>
-
-                    <div class="col">
-                        <div class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="col">
-                        <div class="title">Organizacja 2</div>
-                        <div class="subtitle">Lorem ipsum dolor sit amet consectetur.</div>
-                    </div>
-
-                    <div class="col">
-                        <div class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="col">
-                        <div class="title">Organizacja 3</div>
-                        <div class="subtitle">Lorem ipsum dolor sit amet consectetur.</div>
-                    </div>
-
-                    <div class="col">
-                        <div class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="col">
-                        <div class="title">Organizacja 4</div>
-                        <div class="subtitle">Lorem ipsum dolor sit amet consectetur.</div>
-                    </div>
-
-                    <div class="col">
-                        <div class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                    </div>
-                </li>
+            <p>W naszej bazie znajdziesz listę zweryfikowanych <strong>Organizacji Pozarządowych</strong>, z którymi współpracujemy.
+                Możesz sprawdzić czym się zajmują, komu pomagają i czego potrzebują.</p>
+                        <ul class="help--slides-items">
+                {% for obj in objects2 %}
+                    <li>
+                        <div class="col">
+                            <div class="title">{{ obj.name }}</div>
+                            <div class="subtitle">{{ obj.description }}</div>
+                        </div>
+                        <div class="col">
+                            <div class="text">
+                                {% for org in obj.categories.all %}
+                                    {{ org.name }},
+                                {% endfor %}</div>
+                        </div>
+                    </li>
+                {% endfor %}
             </ul>
 
             <!-- Pagination
@@ -187,36 +129,32 @@
 
         <!-- SLIDE 3 -->
         <div class="help--slides" data-id="3">
-            <p>Lorem ipsum dolor sit amet, his ocurreret persequeris ea, ad utinam laudem duo. Verterem adipisci
-                partiendo eos ne, ea his reque quaeque recteque, ne quo lobortis intellegam.</p>
-            <ul class="help--slides-items">
-                <li>
-                    <div class="col">
-                        <div class="title">Lokalna zbiórka 1</div>
-                        <div class="subtitle">Lorem ipsum dolor sit amet consectetur.</div>
-                    </div>
-
-                    <div class="col">
-                        <div class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="col">
-                        <div class="title">Lokalna zbiórka 2</div>
-                        <div class="subtitle">Lorem ipsum dolor sit amet consectetur.</div>
-                    </div>
-
-                    <div class="col">
-                        <div class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                    </div>
-                </li>
+            <p>W naszej bazie znajdziesz listę zweryfikowanych <strong>Zbiórek Lokalnych</strong>, z którymi współpracujemy.
+                Możesz sprawdzić czym się zajmują, komu pomagają i czego potrzebują.</p>
+                        <ul class="help--slides-items">
+                {% for obj in objects3 %}
+                    <li>
+                        <div class="col">
+                            <div class="title">{{ obj.name }}</div>
+                            <div class="subtitle">{{ obj.description }}</div>
+                        </div>
+                        <div class="col">
+                            <div class="text">
+                                {% for org in obj.categories.all %}
+                                    {{ org.name }},
+                                {% endfor %}</div>
+                        </div>
+                    </li>
+                {% endfor %}
             </ul>
 
             <!-- Pagination
             <ul class="help--slides-pagination">
               <li><a href="#" class="btn btn--small btn--without-border active" data-page="1">1</a></li>
               <li><a href="#" class="btn btn--small btn--without-border" data-page="2">2</a></li>
+              <li><a href="#" class="btn btn--small btn--without-border" data-page="3">3</a></li>
+              <li><a href="#" class="btn btn--small btn--without-border" data-page="4">4</a></li>
+              <li><a href="#" class="btn btn--small btn--without-border" data-page="5">5</a></li>
             </ul>
             -->
         </div>

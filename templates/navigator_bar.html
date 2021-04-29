@@ -4,8 +4,27 @@
     {% block header %}
         <nav class="container container--70">
             <ul class="nav--actions">
-                <li><a href="{% url 'login' %}#login" class="btn btn--small btn--without-border">Zaloguj</a></li>
-                <li><a href="{% url 'register' %}#register" class="btn btn--small btn--highlighted">Załóż konto</a></li>
+                {% if user.is_authenticated %}
+                    <nav class="container container--70">
+                        <ul class="nav--actions">
+                            <li class="logged-user">
+                                Witaj {{ user }}
+                                <ul class="dropdown">
+                                    <li><a href="#">Profil</a></li>
+                                    <li><a href="#">Ustawienia</a></li>
+                                    <li><a href="{% url 'logout' %}#login" class="btn btn--small btn--without-border">
+                                        Wyloguj</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    </nav>
+
+                {% else %}
+                    <li><a href="{% url 'login' %}#login" class="btn btn--small btn--without-border">Zaloguj</a></li>
+                    <li><a href="{% url 'register' %}#register" class="btn btn--small btn--highlighted">Załóż konto</a>
+                    </li>
+                {% endif %}
             </ul>
 
             <ul>

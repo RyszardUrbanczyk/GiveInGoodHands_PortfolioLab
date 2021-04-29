@@ -22,7 +22,8 @@ urlpatterns = [
     # path('accounts/', include('django.contrib.auth.urls')),
     # path('accounts/profile/', views.LandingPageView.as_view(), name='index'),
     path('login/', views.LoginView.as_view(), name='login'),
+    path('logout/', views.LogOutView.as_view(), name='logout'),
     path('register/', views.RegisterView.as_view(), name='register'),
     path('', views.LandingPageView.as_view(), name='index'),
-    path('add-donation/', views.AddDonationView.as_view(), name='add-donation')
+    path('add-donation/', views.AddDonationView.as_view(), name='add-donation'),
 ]

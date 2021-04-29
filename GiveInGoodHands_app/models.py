@@ -24,6 +24,11 @@ class Institution(models.Model):
         quantity_institutions = Institution.objects.all().count()
         return quantity_institutions
 
+    def get_type(self):
+        objects = Institution.objects.all()
+        if type == 1:
+            return f'Fundacja'
+
 
 class Donation(models.Model):
     quantity = models.IntegerField()  # (liczba worków)
