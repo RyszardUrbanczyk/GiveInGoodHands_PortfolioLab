@@ -29,15 +29,12 @@ class LandingPageView(View):
 class AddDonationView(LoginRequiredMixin, View):
 
     def get(self, request):
-        return render(request, 'add-donation.html')
-        # redirect_field_name = '/'
-        # return redirect(redirect_field_name)
+        objects = Category.objects.all()
+        ctx = {
+            'objects':objects,
+        }
+        return render(request, 'add-donation.html', ctx)
 
-
-#
-# class MyView(LoginRequiredMixin, View):
-#     login_url = '/login/'
-#     redirect_field_name = 'redirect_to'
 
 class RegisterView(View):
     """

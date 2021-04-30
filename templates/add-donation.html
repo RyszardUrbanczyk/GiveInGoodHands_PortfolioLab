@@ -61,54 +61,48 @@
                     <h3>Zaznacz co chcesz oddać:</h3>
 
                     <div class="form-group form-group--checkbox">
+                        {% for obj in objects %}
                         <label>
-                            <input
-                                    type="checkbox"
-                                    name="categories"
-                                    value="clothes-to-use"
-                            />
+                            <input type="checkbox" name="categories" value="{{ obj.id }}"/>
                             <span class="checkbox"></span>
-                            <span class="description"
-                            >ubrania, które nadają się do ponownego użycia</span
-                            >
-                        </label>
+                            <span class="description">{{ obj.name }}</span>
+                        </label><br>
+                        {% empty %}
+                        Nie ma jeszcze kategoii.
+                        {% endfor %}
                     </div>
 
-                    <div class="form-group form-group--checkbox">
-                        <label>
-                            <input
-                                    type="checkbox"
-                                    name="categories"
-                                    value="clothes-useless"
-                            />
-                            <span class="checkbox"></span>
-                            <span class="description">ubrania, do wyrzucenia</span>
-                        </label>
-                    </div>
-
-                    <div class="form-group form-group--checkbox">
-                        <label>
-                            <input type="checkbox" name="categories" value="toys"/>
-                            <span class="checkbox"></span>
-                            <span class="description">zabawki</span>
-                        </label>
-                    </div>
-
-                    <div class="form-group form-group--checkbox">
-                        <label>
-                            <input type="checkbox" name="categories" value="books"/>
-                            <span class="checkbox"></span>
-                            <span class="description">książki</span>
-                        </label>
-                    </div>
-
-                    <div class="form-group form-group--checkbox">
-                        <label>
-                            <input type="checkbox" name="categories" value="other"/>
-                            <span class="checkbox"></span>
-                            <span class="description">inne</span>
-                        </label>
-                    </div>
+{#                    <div class="form-group form-group--checkbox">#}
+{#                        <label>#}
+{#                            <input type="checkbox" name="categories" value="clothes-useless"/>#}
+{#                            <span class="checkbox"></span>#}
+{#                            <span class="description">ubrania, do wyrzucenia</span>#}
+{#                        </label>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group form-group--checkbox">#}
+{#                        <label>#}
+{#                            <input type="checkbox" name="categories" value="toys"/>#}
+{#                            <span class="checkbox"></span>#}
+{#                            <span class="description">zabawki</span>#}
+{#                        </label>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group form-group--checkbox">#}
+{#                        <label>#}
+{#                            <input type="checkbox" name="categories" value="books"/>#}
+{#                            <span class="checkbox"></span>#}
+{#                            <span class="description">książki</span>#}
+{#                        </label>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group form-group--checkbox">#}
+{#                        <label>#}
+{#                            <input type="checkbox" name="categories" value="other"/>#}
+{#                            <span class="checkbox"></span>#}
+{#                            <span class="description">inne</span>#}
+{#                        </label>#}
+{#                    </div>#}
 
                     <div class="form-group form-group--buttons">
                         <button type="button" class="btn next-step">Dalej</button>
