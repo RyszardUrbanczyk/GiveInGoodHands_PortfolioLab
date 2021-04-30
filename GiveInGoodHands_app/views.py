@@ -1,4 +1,5 @@
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 
@@ -25,11 +26,18 @@ class LandingPageView(View):
                                              'objects3': objects3, })
 
 
-class AddDonationView(View):
+class AddDonationView(LoginRequiredMixin, View):
 
     def get(self, request):
         return render(request, 'add-donation.html')
+        # redirect_field_name = '/'
+        # return redirect(redirect_field_name)
 
+
+#
+# class MyView(LoginRequiredMixin, View):
+#     login_url = '/login/'
+#     redirect_field_name = 'redirect_to'
 
 class RegisterView(View):
     """

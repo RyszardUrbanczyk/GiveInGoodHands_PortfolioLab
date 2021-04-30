@@ -7,16 +7,13 @@
 <body>
 
 {% block header %}
-{% include 'navigator_bar.html' %}
+    {% include 'header.html' %}
 {% endblock %}
 {% block content %}
     {% include 'index.html' %}
-
-
 {% endblock %}
 {% block footer %}
     {% include 'footer.html' %}
-
 {% endblock %}
 <script src="{% static "js/app.js" %}"></script>
 </body>
