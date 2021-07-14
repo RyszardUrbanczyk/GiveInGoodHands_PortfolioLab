@@ -26,4 +26,6 @@ urlpatterns = [
     path('register/', views.RegisterView.as_view(), name='register'),
     path('', views.LandingPageView.as_view(), name='index'),
     path('add-donation/', views.AddDonationView.as_view(), name='add-donation'),
+    path('my-form/', views.MyFormView.as_view(), name='my-form'),
+    path('form-confirmation/',views.FormConfirmation.as_view(), name='form-confirmation' )
 ]

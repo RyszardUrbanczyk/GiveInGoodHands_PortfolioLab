@@ -8,6 +8,9 @@ from django.contrib.auth.models import User
 class Category(models.Model):
     name = models.CharField(max_length=200)
 
+    def __str__(self):
+        return self.name
+
 
 class Institution(models.Model):
     TYPE_STATUS = (
@@ -20,9 +23,13 @@ class Institution(models.Model):
     type = models.IntegerField(choices=TYPE_STATUS, default=1)
     categories = models.ManyToManyField(Category)
 
+    def __str__(self):
+        return self.name
+
     def get_institution_count(self):
         quantity_institutions = Institution.objects.all().count()
         return quantity_institutions
+
 
 class Donation(models.Model):
     quantity = models.IntegerField()  # (liczba worków)
@@ -39,9 +46,14 @@ class Donation(models.Model):
     pick_up_comment = models.TextField(null=True, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    def get_quantity_all(self):
+    def get_quantity_count(self):
         quantity = Donation.objects.all()
         quantity_bags = 0
         for i in quantity:
             quantity_bags += i.quantity
         return quantity_bags
+
+    # class Meta():
+    #     abstract = True
+    def __str__(self):
+        return f'{self.quantity}, {self.institution}'
